@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Контакты</title>
+    <style>
+        body { background-color: black; color: white; }
+        a { color: lightblue; }
+        a:hover { background-color: gray; }
+    </style>
+</head>
+<body>
+
+    <p>
+        <a href="index.html">🏠 Главная</a> |
+        <a href="catalog.html">Каталог</a> |
+        <a href="about.html">О нас</a> |
+        <a href="order.html">Заказать</a> |
+        <b>Контакты</b> |
+        <a href="dom.html">DOM/JS</a> |
+        <a href="task.html">Задача</a> |
+        <a href="https://www.svrentcar.ru" target="_blank">Наши партнеры</a>
+    </p>
+    <hr>
+
+    <p id="top">
+        <a href="#section1">Как нас найти</a> |
+        <a href="#section2">Форма контактных данных</a>
+    </p>
+
+    <h1>Контакты</h1>
+
+    <h2 id="section1">Как нас найти</h2>
+    <ul>
+        <li>Адрес: г. Санкт-Петербург, Коломяжский проспект, 32
+            <ul>
+                <li>Код домофона: 37</li>
+                <li>Вход со стороны улицы</li>
+            </ul>
+        </li>
+        <li>Телефон: +7 (911) 123-33-67</li>
+        <li>Email: carshow@mail.ru</li>
+    </ul>
+
+    <img src="images/map.jpg" alt="Карта" width="300">
+    <p><i>Карта проезда</i></p>
+
+    <h2 id="section2">Отправить заявку</h2>
+    <form action="https://www.bing.com/search?" method="get" target="_blank">
+        <ul>
+            <li>Фамилия: <input type="text" name="lastname" value="Гусев"></li>
+            <li>Имя: <input type="text" name="firstname" value="Александр"></li>
+            <li>Мобильный телефон: <input type="text" name="phone" value="89118754356"></li>
+            <li>Электронная почта: <input type="text" name="email" value="alex@gmail.com"></li>
+            <li>Группа: <input type="text" name="group" value="ИУ7-67Б"></li>
+            <li>Дата отправки: <input type="date" name="senddate" value="2026-10-21"></li>
+            <li><input type="submit" value="Отправить контакты"></li>
+        </ul>
+    </form>
+
+    <p><a href="#top">⬆ К началу</a></p>
+
+</body>
+</html>

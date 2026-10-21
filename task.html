@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Задача</title>
+
+    <style>
+         body { background-color: black; color: white; }
+        a { color: lightblue; }
+        a:hover { background-color: gray; }
+    </style>
+
+</head>
+
+<body>
+    <p>
+        <a href="index.html">🏠 Главная</a> |
+        <a href="catalog.html">Каталог</a> |
+        <a href="about.html">О нас</a> |
+        <a href="order.html">Заказать</a> |
+        <a href="contacts.html">Контакты</a> |
+        <a href="dom.html">DOM/JS</a> |
+        <b>Задача</b> |
+        <a href="https://www.svrentcar.ru" target="_blank">Наши партнеры</a>
+    </p>
+    <hr>
+
+    <p name="formulation">Пройдёт ли коробка A×B×C в дверь M×K?</p>
+    <form action="https://www.bing.com/search?" id="UserEnter" name="UserEnter" target="_blank">
+        <ul>
+            <li>Для поисковика:<input name="q" value="search"></li>
+            <li>Формулировка задачи
+                <br><textarea cols="60" rows="4" id="task" name="formulation">Пройдёт ли коробка A×B×C в дверь M×K?</textarea></li>
+            <li>A: <input id="a" name="a" type="number" value="30"></li>
+            <li>B: <input id="b" name="b" type="number" value="40"></li>
+            <li>C: <input id="c" name="c" type="number" value="60"></li>
+            <li>M: <input id="m" name="m" type="number" value="50"></li>
+            <li>K: <input id="k" name="k" type="number" value="70"></li>
+            <li>Результат решения задачи: <input id="result" name="result" value="не определен"></li>
+            <li>действие 1: <input id="verify" type="button" value="Проверить"></li>
+            <li>действие 2: <input id="send" type="button" value="Отправить"></li>
+        </ul>
+    </form>
+
+    <script>
+           document.getElementById('verify').onclick = function () {
+            let A = Number(document.getElementById('a').value);
+            let B = Number(document.getElementById('b').value);
+            let C = Number(document.getElementById('c').value);
+            let M = Number(document.getElementById('m').value);
+            let K = Number(document.getElementById('k').value);
+
+            let box = [A, B, C];
+            box.sort(function (x, y) { return x - y; });
+
+            let door = [M, K];
+            door.sort(function (x, y) { return x - y; });
+
+            let res;
+            if (box[0] <= door[0] && box[1] <= door[1]) {
+                res = "Да, коробка пройдёт";
+            } else {
+                res = "Нет, коробка не пройдёт";
+            }
+
+            document.getElementById('result').value = res;
+        };
+
+        document.getElementById('send').onclick = function () {
+            document.getElementById('UserEnter').submit();
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Оформление заказа</title>
+    <style>
+        body { background-color: black; color: white; }
+        a { color: lightblue; }
+        a:hover { background-color: gray; }
+    </style>
+</head>
+<body>
+
+    <p>
+        <a href="index.html">🏠 Главная</a> |
+        <a href="catalog.html">Каталог</a> |
+        <a href="about.html">О нас</a> |
+        <b>Заказать</b> |
+        <a href="contacts.html">Контакты</a> |
+        <a href="dom.html">DOM/JS</a> |
+        <a href="task.html">Задача</a> |
+        <a href="https://www.svrentcar.ru" target="_blank">Наши партнеры</a>
+    </p>
+    <hr>
+
+    <h1>Оформление заказа</h1>
+
+    <form action="https://www.bing.com/search?" method="get" target="_blank">
+        <ul>
+
+            <li>Ваше имя: <input type="text" name="client_name" value="Иван"></li>
+
+
+            <li>Количество дней аренды: <input type="number" name="days_count" value="3"></li>
+
+
+            <li>Класс автомобиля:
+                <label><input type="radio" name="car_class" value="sport" checked> Спорткар</label>
+                <label><input type="radio" name="car_class" value="sedan"> Седан</label>
+                <label><input type="radio" name="car_class" value="suv"> Внедорожник</label>
+            </li>
+
+
+            <li>Доп. услуги:
+                <label><input type="checkbox" name="extra_delivery" value="yes" checked> Доставка</label>
+                <label><input type="checkbox" name="extra_driver" value="yes"> Второй водитель</label>
+                <label><input type="checkbox" name="extra_childseat" value="yes"> Детское кресло</label>
+            </li>
+            <li>Дата начала аренды: <input type="date" name="start_date" value="2026-10-20"></li>
+            <li>Пароль для личного кабинета: <input type="password" name="account_pass" value="secret123"></li>
+            <li><input type="hidden" name="form_type" value="car_order"></li>
+            <li><input type="submit" value="Отправить заказ"></li>
+        </ul>
+    </form>
+
+</body>
+</html>

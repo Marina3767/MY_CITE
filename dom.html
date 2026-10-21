@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>DOM_JS. Считываем информацию из DOM. Изменяем кириллицу на латиницу</title>
+    <style>
+        body { background-color: black; color: white; }
+        a { color: lightblue; }
+        a:hover { background-color: gray; }
+    </style>
+</head>
+<body>
+
+    <div>
+        <a href="index.html">🏠 Главная</a> |
+        <a href="catalog.html">Каталог</a> |
+        <a href="about.html">О нас</a> |
+        <a href="order.html">Заказать</a> |
+        <a href="contacts.html">Контакты</a> |
+        <b>DOM/JS</b> |
+        <a href="task.html">Задача</a> |
+        <a href="https://www.ferrari.com" target="_blank">Ferrari (внешний)</a>
+    </div>
+    <hr>
+
+    <h1>DOM_JS. Считываем информацию из DOM</h1>
+
+    <p>Паспорт гражданина РФ</p>
+    <p>Выдан: ОВД г. Москвы, 01.21.2023</p>
+    <p>Фамилия: <span>Петрович</span>, Имя: <span>Федор</span>, Год рождения: <span>2007</span></p>
+
+    <p><input type="button" id="readBtn" value="Считать данные из DOM"></p>
+    <p>Результат: <input type="text" id="out" value="—" size="60"></p>
+
+    <p><i>Скриншот браузера с результатом запроса в консоли:</i></p>
+    <img src="images/domscr.png" alt="Скриншот DOM" width="500">
+
+    <script>
+    document.getElementById('readBtn').onclick = function () {
+        var p = document.getElementsByTagName('p')[2];
+        var surname = p.childNodes[1].innerText;
+        var name    = p.childNodes[3].innerText;
+        var year    = p.childNodes[5].innerText;
+
+        document.getElementById('out').value =
+            "Фамилия: " + surname + ", Имя: " + name + ", Год рождения: " + year;
+
+        console.log("surname:", surname);
+        console.log("name:", name);
+        console.log("year:", year);
+    };
+    </script>
+
+    <hr>
+
+    <h1>Переводчик</h1>
+
+    <p>
+        Фамилия: <span id="surname">Петрович</span>,
+        Имя: <span id="name">Федор</span>,
+        Год рождения: <span id="year">2007</span>
+    </p>
+
+    <p><input type="button" id="translitBtn" value="Транслит"></p>
+
+    <script>
+    var toLat = {
+        'А':'A','Б':'B','В':'V','Г':'G','Д':'D','Е':'E','Ё':'Yo',
+        'Ж':'Zh','З':'Z','И':'I','Й':'Y','К':'K','Л':'L','М':'M',
+        'Н':'N','О':'O','П':'P','Р':'R','С':'S','Т':'T','У':'U',
+        'Ф':'F','Х':'Kh','Ц':'Ts','Ч':'Ch','Ш':'Sh','Щ':'Shch',
+        'Ъ':'','Ы':'Y','Ь':'','Э':'E','Ю':'Yu','Я':'Ya',
+        'а':'a','б':'b','в':'v','г':'g','д':'d','е':'e','ё':'yo',
+        'ж':'zh','з':'z','и':'i','й':'y','к':'k','л':'l','м':'m',
+        'н':'n','о':'o','п':'p','р':'r','с':'s','т':'t','у':'u',
+        'ф':'f','х':'kh','ц':'ts','ч':'ch','ш':'sh','щ':'shch',
+        'ъ':'','ы':'y','ь':'','э':'e','ю':'yu','я':'ya'
+    };
+
+    function translit(str) {
+        var out = '';
+        for (var i = 0; i < str.length; i++) {
+            var ch = str[i];
+            out += (toLat[ch] !== undefined) ? toLat[ch] : ch;
+        }
+        return out;
+    }
+
+    var sEl = document.getElementById('surname');
+    var nEl = document.getElementById('name');
+    var yEl = document.getElementById('year');
+    var btn = document.getElementById('translitBtn');
+    var origS = sEl.innerText, origN = nEl.innerText, origY = yEl.innerText;
+    var isLatin = false;
+
+    btn.onclick = function () {
+        if (!isLatin) {
+            sEl.innerText = translit(origS);
+            nEl.innerText = translit(origN);
+            yEl.innerText = translit(origY);
+            isLatin = true;
+        } else {
+            sEl.innerText = origS;
+            nEl.innerText = origN;
+            yEl.innerText = origY;
+            isLatin = false;
+        }
+    };
+    </script>
+
+</body>
+</html>
